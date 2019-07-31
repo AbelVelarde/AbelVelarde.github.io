@@ -41,8 +41,8 @@ function obtenerMaxPoints(){
     request.send();
     
     request.onload = function(){
-        request.response.puntos = puntuacionActual;
-        request.nombreJugador = nombreJugador;
+        let myJSON = request.response;
+        console.log(myJSON);
     }
 }
 
@@ -57,7 +57,8 @@ function getMaxPoints(){
     request.send();
     
     request.onload = function(){
-        puntuacionMaxima = request.puntos;
+        let myJSON = request.response;
+        console.log(myJSON);
     }
 
     return maxPoints;
