@@ -1,4 +1,4 @@
-let puntuacionMaxima = getMaxPoints();
+let puntuacionMaxima = '0';
 let puntuacionAnterior = '0';
 let puntuacionActual = '0';
 
@@ -19,47 +19,16 @@ function actualizarPuntuacion() {
 function guardarPuntuaciones() {
     puntuacionAnterior = puntuacionActual;
     document.getElementById('pAnterior').value = puntuacionAnterior;
-    puntuacionActual > puntuacionMaxima ? obtenerMaxPoints() : false;
+    puntuacionActual > puntuacionMaxima ? guardarMaxima() : false;
     puntuacionActual = '0';
     document.getElementById('pActual').value = puntuacionActual;
+
+
 }
 
-function guardarMaxima(e, nombreJugador) {
-    e.maxPoints.nombreJugador = nombreJugador;
-    e.maxPoints.puntos = puntuacionActual;    
-}
-
-function obtenerMaxPoints(){
-
-    let nombreJugador = prompt("Has lograda la maxima puntuacion, introduce tu nombre");
-
-    let url = 'https://abelvelarde.github.io/maxPoints.json';
-
-    let request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.responseType = 'json';
-    request.send();
+function guardarMaxima() {
+    puntuacionMaxima = puntuacionActual;
+    localStorage.setItem('puntuacion', puntuacionMaxima);
+    document.getElementById('pMaxima').value= localStorage.getItem('puntuacion');
     
-    request.onload = function(){
-        let myJSON = request.response;
-        console.log(myJSON);
-    }
-}
-
-function getMaxPoints(){
-    let url = 'https://abelvelarde.github.io/maxPoints.json';
-    
-    let maxPoints = 0;
-
-    let request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.responseType = 'json';
-    request.send();
-    
-    request.onload = function(){
-        let myJSON = request.response;
-        console.log(myJSON);
-    }
-
-    return maxPoints;
 }
