@@ -1,7 +1,55 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<head>
+    <title>The Snake</title>
+    <link rel="stylesheet" href="SnakeStyle.css">
+    <script src="Grid.js" defer></script>
+    <script src="Serpiente.js" defer></script>
+    <script src="Comida.js" defer></script>
+    <script src="EventosTeclado.js" defer></script>
+    <script src="Puntuacion.js" defer></script>
+    <script src="Main.js" defer></script>
+    <script src="Movimiento.js" defer></script>
+</head>
+
+<body onload="start()">
+    <div id="game">
+        <div id="grid"></div>
+        <div id="gameData">
+            <div id="puntuaciones" class="dataContainer">
+                <div class="puntuacionContainer">
+                    <p>Puntuacion Actual:</p>
+                    <form>
+                        <input id="pActual" class="puntuacion" onfocus="window.document.getElementById('pAct').blur()">
+                    </form>
+                </div>
+                <div class="puntuacionContainer">
+                        <p>Puntuacion Anterior:</p>
+                    <form>
+                        <input id="pAnterior" class="puntuacion" onfocus="window.document.getElementById('pAct').blur()">
+                    </form>
+                </div>
+                <div class="puntuacionContainer">
+                        <p>Puntuacion Máxima:</p>
+                    <form>
+                        <input id="pMaxima" class="puntuacion" onfocus="window.document.getElementById('pAct').blur()">
+                    </form>
+                </div>
+            </div>
+            <div id="instrucciones" class="dataContainer">
+                <p>Instrucciones:</p>
+                <ul id="listaInst">
+                    <li>Empezar/Continuar: Intro.</li>
+                    <li>Pausa: Espacio.</li>
+                    <li>Golpear las esquinas o el cuerpo de la serpiernte implica perder.</li>
+                </ul>
+                <p>Buena Suerte.</p>
+            </div>
+        </div>
+
+    </div>
+
 </body>
+
 </html>
