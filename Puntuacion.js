@@ -1,7 +1,3 @@
-let myJson = {
-    puntos: 0
-}
-
 let puntuacionMaxima = '0';
 let puntuacionAnterior = '0';
 let puntuacionActual = '0';
